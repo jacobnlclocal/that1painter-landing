@@ -371,34 +371,6 @@
             background: #000;
         }
 
-        .video-thumb {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: opacity 0.2s;
-        }
-
-        .video-wrap:hover .video-thumb {
-            opacity: 0.85;
-        }
-
-        .video-play {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-        }
-
-        .video-wrap:hover .video-play {
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
         .video-wrap iframe {
             position: absolute;
             top: 0;
@@ -922,10 +894,7 @@
                 <p>Get to know the team before we show up at your door.</p>
             </div>
             <div class="video-wrap" id="videoWrap">
-                <img src="https://img.youtube.com/vi/FnVbvw_1JFk/maxresdefault.jpg" alt="That 1 Painter Knoxville Video" class="video-thumb" />
-                <button class="video-play" aria-label="Play video">
-                    <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.63-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
-                </button>
+                <iframe src="https://www.youtube.com/embed/FnVbvw_1JFk?autoplay=1&mute=1&loop=1&playlist=FnVbvw_1JFk&rel=0&modestbranding=1" title="That 1 Painter Knoxville" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -1118,10 +1087,6 @@
             entries.forEach(e => fb.classList.toggle('show', !e.isIntersecting));
         }, { threshold: 0 }).observe(hero);
 
-        // Video - click thumbnail to load iframe
-        document.getElementById('videoWrap').addEventListener('click', function() {
-            this.innerHTML = '<iframe src="https://www.youtube.com/embed/FnVbvw_1JFk?autoplay=1&rel=0" title="That 1 Painter Knoxville" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-        });
     </script>
 
     <!-- Housecall Pro Online Booking Widget -->
