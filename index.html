@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>That 1 Painter Knoxville - Book Your Estimate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue: #1a8fe3;
+            --blue-dark: #0c6bbf;
+            --blue-deeper: #0a4f8a;
+            --blue-light: #3da8f5;
+            --blue-glow: #5ec3ff;
+            --sky: #eef6fc;
+            --mint: #4edfa0;
+            --orange: #f5a623;
+            --warm: #fef9f2;
+            --peach: #fff4e6;
+            --charcoal: #2a3441;
+            --slate: #5c6e7f;
+            --warm-white: #faf8f5;
+            --white: #ffffff;
+            --sand: #f0ece6;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background: var(--warm-white);
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
+        /* ── Top Bar ── */
+        .topbar {
+            background: var(--charcoal);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 24px;
+            font-size: 0.85rem;
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* CSS paint brush icon matching the brand */
+        .brush-icon {
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .brush-icon svg { width: 100%; height: 100%; }
+
+        .topbar-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .topbar-name .t1p { color: white; }
+        .topbar-name .knx { color: var(--blue-light); font-weight: 600; font-size: 0.75rem; display: block; letter-spacing: 3px; margin-top: -3px; }
+
+        .topbar-phone a {
+            color: var(--blue-glow);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 50%, var(--blue-deeper) 100%);
+            color: white;
+            padding: 50px 24px 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Organic blob shape like the logo background */
+        .hero-blob {
+            position: absolute;
+            top: -60px;
+            left: -80px;
+            width: 400px;
+            height: 500px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+            animation: blobFloat 12s ease-in-out infinite;
+        }
+
+        .hero-blob-2 {
+            position: absolute;
+            bottom: -80px;
+            right: -60px;
+            width: 350px;
+            height: 400px;
+            background: rgba(0,0,0,0.08);
+            border-radius: 40% 60% 30% 70% / 60% 40% 50% 50%;
+            animation: blobFloat 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(15px, -15px) rotate(3deg); }
+            66% { transform: translate(-10px, 10px) rotate(-2deg); }
+        }
+
+        /* Paint drip accents */
+        .drip {
+            position: absolute;
+            top: 0;
+            background: rgba(255,255,255,0.08);
+            border-radius: 0 0 50% 50%;
+        }
+        .drip-1 { left: 10%; height: 70px; width: 24px; }
+        .drip-2 { left: 28%; height: 110px; width: 32px; }
+        .drip-3 { right: 12%; height: 50px; width: 20px; }
+        .drip-4 { right: 35%; height: 85px; width: 26px; }
+        .drip-5 { left: 50%; height: 40px; width: 16px; }
+
+        .hero-inner {
+            max-width: 760px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .confirmed-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--mint);
+            color: #0d4a2a;
+            padding: 7px 18px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .confirmed-tag::before {
+            content: '\2713';
+            font-weight: 900;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 540px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .hero p strong { color: var(--blue-glow); }
+
+        .promo-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--orange);
+            color: #3d2600;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 24px rgba(245, 166, 35, 0.35);
+            transform: rotate(-1deg);
+        }
+
+        .promo-box .football { font-size: 1.3rem; }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        /* Curve bottom */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: -5%;
+            width: 110%;
+            height: 50px;
+            background: var(--warm-white);
+            border-radius: 50% 50% 0 0;
+        }
+
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 28px;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--blue-dark);
+        }
+
+        .btn-white:hover {
+            background: var(--sky);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.35);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        .btn-blue {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(26, 143, 227, 0.35);
+        }
+
+        .btn-dark {
+            background: var(--charcoal);
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #0f1d2a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── Section Headers ── */
+        .section-header { margin-bottom: 32px; }
+
+        .section-header h2 {
+            font-size: clamp(1.7rem, 4vw, 2.3rem);
+            font-weight: 800;
+            color: var(--charcoal);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .section-header h2 .blue { color: var(--blue); }
+
+        .section-header p {
+            color: var(--slate);
+            font-size: 1.05rem;
+        }
+
+        /* ── Process ── */
+        .process-section { padding: 56px 0 50px; }
+
+        .process-steps { display: grid; gap: 0; }
+
+        .proc-step {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 2px dashed var(--sand);
+            align-items: start;
+        }
+
+        .proc-step:last-child { border-bottom: none; }
+
+        .proc-num {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: white;
+        }
+
+        .proc-step:nth-child(1) .proc-num { background: var(--blue); }
+        .proc-step:nth-child(2) .proc-num { background: var(--blue-dark); }
+        .proc-step:nth-child(3) .proc-num { background: var(--blue-deeper); }
+        .proc-step:nth-child(4) .proc-num { background: var(--mint); color: #0d4a2a; }
+
+        .proc-step h3 {
+            font-size: 1.12rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .proc-step p {
+            color: var(--slate);
+            font-size: 0.95rem;
+        }
+
+        /* ── Video ── */
+        .video-section {
+            padding: 50px 0 60px;
+            background: var(--white);
+        }
+
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            cursor: pointer;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .video-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.2s;
+        }
+
+        .video-wrap:hover .video-thumb {
+            opacity: 0.85;
+        }
+
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+        }
+
+        .video-wrap:hover .video-play {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-wrap iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ── Services ── */
+        .services-section {
+            background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 60%, var(--blue-deeper) 100%);
+            color: white;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: -24px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 100%, 0 0);
+        }
+
+        .services-section .section-header h2 { color: white; }
+        .services-section .section-header p { color: rgba(255,255,255,0.7); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .svc {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 14px;
+            padding: 26px;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .svc::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .svc:nth-child(1)::before { background: var(--blue-glow); }
+        .svc:nth-child(2)::before { background: var(--orange); }
+        .svc:nth-child(3)::before { background: var(--mint); }
+        .svc:nth-child(4)::before { background: #c084fc; }
+
+        .svc:hover { background: rgba(255,255,255,0.14); }
+
+        .svc-emoji {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .svc h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .svc p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.5;
+        }
+
+        /* ── Book Estimate ── */
+        .book-section { padding: 60px 0; }
+
+        .book-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(26,143,227,0.1);
+            border: 1px solid var(--sand);
+        }
+
+        .book-top {
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: white;
+            padding: 40px 36px 44px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Blob in CTA card */
+        .book-blob {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+        }
+
+        .book-top::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 18px;
+            background: var(--white);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .book-top h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .book-top p {
+            opacity: 0.9;
+            font-size: 1.02rem;
+            position: relative;
+            max-width: 500px;
+        }
+
+        .book-bottom {
+            padding: 28px 36px 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .book-bottom .or-text {
+            color: var(--slate);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* ── Trust Bar ── */
+        .trust-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            padding: 24px 0 50px;
+        }
+
+        .trust-item {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 22px 14px;
+            text-align: center;
+            border: 1px solid var(--sand);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .trust-item:nth-child(1)::after { background: var(--blue); }
+        .trust-item:nth-child(2)::after { background: var(--orange); }
+        .trust-item:nth-child(3)::after { background: var(--mint); }
+        .trust-item:nth-child(4)::after { background: var(--blue-glow); }
+
+        .trust-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 900;
+            color: var(--charcoal);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .trust-label {
+            font-size: 0.8rem;
+            color: var(--slate);
+            font-weight: 500;
+        }
+
+        /* ── Review Callout ── */
+        .review-callout {
+            background: var(--warm);
+            border: 1px solid var(--sand);
+            border-radius: 16px;
+            padding: 30px 32px;
+            margin-bottom: 50px;
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .review-stars {
+            color: var(--orange);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            font-size: 1.02rem;
+            color: var(--charcoal);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .review-author {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--slate);
+        }
+
+        /* ── FAQ ── */
+        .faq-section {
+            background: var(--warm);
+            padding: 56px 0 64px;
+            border-top: 1px solid var(--sand);
+        }
+
+        .faq-list { margin-top: 28px; }
+
+        .faq-item { border-bottom: 1px solid var(--sand); }
+
+        .faq-q {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-align: left;
+            gap: 16px;
+        }
+
+        .faq-q:hover { color: var(--blue); }
+
+        .faq-arrow {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            background: var(--sand);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--blue);
+            transition: all 0.25s;
+        }
+
+        .faq-item.open .faq-arrow {
+            background: var(--blue);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.open .faq-a { max-height: 200px; }
+
+        .faq-a-inner {
+            padding: 0 0 20px;
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 640px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 32px 24px;
+        }
+
+        .footer-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-brand-text span { color: var(--blue-light); }
+
+        .footer-right {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .footer-right a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-right a:hover { color: var(--blue-glow); }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            color: rgba(255,255,255,0.25);
+            font-size: 0.75rem;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* ── Floating CTA ── */
+        .float-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(16px);
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .float-btn.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .float-btn a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: white;
+            padding: 14px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.92rem;
+            box-shadow: 0 6px 28px rgba(26,143,227,0.4);
+            transition: all 0.2s;
+        }
+
+        .float-btn a:hover {
+            box-shadow: 0 8px 36px rgba(26,143,227,0.55);
+            transform: translateY(-2px);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 700px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .trust-bar { grid-template-columns: repeat(2, 1fr); }
+            .book-bottom { flex-direction: column; }
+            .book-bottom .or-text { display: none; }
+            .btn { width: 100%; justify-content: center; }
+            .book-top, .book-bottom { padding-left: 24px; padding-right: 24px; }
+            .hero { padding: 36px 20px 56px; }
+            .hero-cta-row { flex-direction: column; }
+            .hero-cta-row .btn { width: 100%; justify-content: center; max-width: 320px; }
+            .promo-box { font-size: 0.95rem; padding: 12px 20px; }
+            .topbar { flex-direction: column; gap: 4px; text-align: center; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-right { justify-content: center; }
+            .footer-brand { justify-content: center; }
+        }
+
+        @media (max-width: 400px) {
+            .trust-bar { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="topbar-brand">
+            <div class="topbar-logo">
+                <!-- Simplified T1P brush icon matching their logo -->
+                <svg class="brush-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="20" width="5" height="14" rx="2" fill="#5ec3ff"/>
+                    <rect x="14" y="16" width="5" height="18" rx="2" fill="#3da8f5"/>
+                    <rect x="22" y="20" width="5" height="14" rx="2" fill="#5ec3ff"/>
+                    <rect x="10" y="8" width="13" height="10" rx="3" fill="white" opacity="0.9"/>
+                    <rect x="12" y="4" width="2" height="6" rx="1" fill="#5ec3ff"/>
+                    <rect x="16" y="2" width="2" height="8" rx="1" fill="#3da8f5"/>
+                    <rect x="20" y="5" width="2" height="5" rx="1" fill="#5ec3ff"/>
+                </svg>
+                <div class="topbar-name">
+                    <span class="t1p">THAT 1 PAINTER</span>
+                    <span class="knx">KNOXVILLE</span>
+                </div>
+            </div>
+        </div>
+        <div class="topbar-phone"><a href="tel:+18655623036">(865) 562-3036</a></div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-blob"></div>
+        <div class="hero-blob-2"></div>
+        <div class="drip drip-1"></div>
+        <div class="drip drip-2"></div>
+        <div class="drip drip-3"></div>
+        <div class="drip drip-4"></div>
+        <div class="drip drip-5"></div>
+
+        <div class="hero-inner">
+            <div class="confirmed-tag">Pick Confirmed</div>
+            <h1>You're in! Let's make your home look amazing.</h1>
+            <p>Your Super Bowl pick is locked in. If your team takes it home, you get <strong>15% off your next painting project</strong> with us. While you're here &mdash; go ahead and grab your free estimate.</p>
+            <div class="promo-box">
+                <span class="football">&#127944;</span>
+                15% OFF IF YOUR TEAM WINS
+            </div>
+            <div class="hero-cta-row">
+                <a href="#book" class="btn btn-white" id="heroCta">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Book Free Estimate
+                </a>
+                <a href="tel:+18655623036" class="btn btn-outline-white">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    Call Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Here's how it <span class="blue">works</span></h2>
+                <p>We keep things simple so you can sit back and enjoy the transformation.</p>
+            </div>
+            <div class="process-steps">
+                <div class="proc-step">
+                    <div class="proc-num">1</div>
+                    <div>
+                        <h3>Schedule your free estimate</h3>
+                        <p>Pick a time that works for your family. We'll come by, take a look at everything, and give you an honest quote right there on the spot.</p>
+                    </div>
+                </div>
+                <div class="proc-step">
+                    <div class="proc-num">2</div>
+                    <div>
+                        <h3>We lock in your price</h3>
+                        <p>Once you approve the quote, we get you on the schedule. The price you see is the price you pay &mdash; no hidden fees, no surprises.</p>
+                    </div>
+                </div>
+                <div class="proc-step">
+                    <div class="proc-num">3</div>
+                    <div>
+                        <h3>Our crew takes care of everything</h3>
+                        <p>We show up on time, protect your furniture and floors, and get to work. We treat your home like it's our own &mdash; because that's how it should be.</p>
+                    </div>
+                </div>
+                <div class="proc-step">
+                    <div class="proc-num">4</div>
+                    <div>
+                        <h3>Enjoy your fresh new space</h3>
+                        <p>We do a final walkthrough with you. If anything doesn't look right, we take care of it. We don't leave until you love it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <div class="section-header" style="text-align:center;">
+                <h2>See what we're <span class="blue">all about</span></h2>
+                <p>Get to know the team before we show up at your door.</p>
+            </div>
+            <div class="video-wrap" id="videoWrap">
+                <img src="https://img.youtube.com/vi/FnVbvw_1JFk/maxresdefault.jpg" alt="That 1 Painter Knoxville Video" class="video-thumb" />
+                <button class="video-play" aria-label="Play video">
+                    <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.63-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>What we can do for your home</h2>
+                <p>Whether it's one room or the whole house, we'll make it feel brand new.</p>
+            </div>
+            <div class="services-grid">
+                <div class="svc">
+                    <span class="svc-emoji">&#127968;</span>
+                    <h3>Interior Painting</h3>
+                    <p>Living rooms, bedrooms, kitchens &mdash; we bring clean lines and smooth finishes to every room in your home.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-emoji">&#127967;</span>
+                    <h3>Exterior Painting</h3>
+                    <p>Give your home the curb appeal it deserves with coatings built for Tennessee weather.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-emoji">&#128722;</span>
+                    <h3>Cabinet Painting</h3>
+                    <p>Love your kitchen again without the full renovation. Smooth, factory-quality finish that transforms the space.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-emoji">&#127912;</span>
+                    <h3>Color Consulting</h3>
+                    <p>Can't decide on a color? No worries. We'll help you find the perfect match for your home &mdash; free of charge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Estimate -->
+    <section class="book-section" id="book">
+        <div class="container">
+            <div class="book-card">
+                <div class="book-top">
+                    <div class="book-blob"></div>
+                    <h2>Let's talk about your home</h2>
+                    <p>Book a free estimate and we'll swing by, walk through your project together, and give you an honest price. No pressure, no surprises.</p>
+                </div>
+                <div class="book-bottom">
+                    <a href="#" class="btn btn-blue" id="bookBtn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Book Free Estimate
+                    </a>
+                    <span class="or-text">or</span>
+                    <a href="tel:+18655623036" class="btn btn-dark">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        Call (865) 562-3036
+                    </a>
+                </div>
+            </div>
+
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <div class="trust-num">4.9 &#9733;</div>
+                    <div class="trust-label">Google Rating</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-num">231</div>
+                    <div class="trust-label">Google Reviews</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-num">100%</div>
+                    <div class="trust-label">Satisfaction Guaranteed</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-num">Free</div>
+                    <div class="trust-label">Estimates, Always</div>
+                </div>
+            </div>
+
+            <!-- Neighbor Review Callout -->
+            <div class="review-callout">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">&ldquo;These guys were awesome. Showed up when they said they would, kept everything clean, and our living room looks incredible. Already recommended them to two neighbors.&rdquo;</p>
+                <p class="review-author">&mdash; Knoxville Homeowner</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Questions? <span class="blue">We're here to help.</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q">
+                        How does the 15% Super Bowl discount work?
+                        <span class="faq-arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">It's straightforward &mdash; if the team you picked takes the Super Bowl, you get 15% off your next painting project with us. We'll reach out to all the winners after the game. No strings, no fine print.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">
+                        How long does the estimate take?
+                        <span class="faq-arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Usually about 20-30 minutes. We'll walk through your home with you, chat about what you're envisioning, and have a price for you before we head out. Easy and relaxed.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">
+                        Do I need to buy the paint myself?
+                        <span class="faq-arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Not at all! We take care of everything &mdash; paint, primer, supplies, the whole nine yards. We use premium products and it's all rolled into your quote. You just pick the colors and we handle the rest.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">
+                        How soon can you start?
+                        <span class="faq-arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Most projects get on the calendar within 1-2 weeks after you give us the green light. If it's our busy season, it might be a touch longer, but we'll always be upfront about timing.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">
+                        Are you guys licensed and insured?
+                        <span class="faq-arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Absolutely. Fully licensed and fully insured. Your home and belongings are protected from start to finish. That's just how we do things.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+                    <rect x="6" y="20" width="5" height="14" rx="2" fill="#5ec3ff"/>
+                    <rect x="14" y="16" width="5" height="18" rx="2" fill="#3da8f5"/>
+                    <rect x="22" y="20" width="5" height="14" rx="2" fill="#5ec3ff"/>
+                    <rect x="10" y="8" width="13" height="10" rx="3" fill="white" opacity="0.9"/>
+                    <rect x="12" y="4" width="2" height="6" rx="1" fill="#5ec3ff"/>
+                    <rect x="16" y="2" width="2" height="8" rx="1" fill="#3da8f5"/>
+                    <rect x="20" y="5" width="2" height="5" rx="1" fill="#5ec3ff"/>
+                </svg>
+                <div class="footer-brand-text">THAT 1 PAINTER <span>KNOXVILLE</span></div>
+            </div>
+            <div class="footer-right">
+                <a href="#process">How It Works</a>
+                <a href="#services">Services</a>
+                <a href="#book">Book Estimate</a>
+            </div>
+            <div class="footer-copy">Proudly serving Knoxville, TN &amp; surrounding areas &bull; Licensed &amp; Insured &bull; that1painter.com</div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="float-btn" id="floatingCta">
+        <a href="#book">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book Estimate
+        </a>
+    </div>
+
+    <script>
+        // FAQ
+        document.querySelectorAll('.faq-q').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+
+        // Floating CTA
+        const fb = document.getElementById('floatingCta');
+        const hero = document.querySelector('.hero');
+        new IntersectionObserver(entries => {
+            entries.forEach(e => fb.classList.toggle('show', !e.isIntersecting));
+        }, { threshold: 0 }).observe(hero);
+
+        // Book buttons
+        document.getElementById('bookBtn').addEventListener('click', e => {
+            e.preventDefault();
+            // Replace with your Housecall Pro booking link
+            window.open('https://www.housecallpro.com/book/That-1-Painter-Knoxville/', '_blank');
+        });
+
+        document.getElementById('heroCta').addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Video - click thumbnail to load iframe
+        document.getElementById('videoWrap').addEventListener('click', function() {
+            this.innerHTML = '<iframe src="https://www.youtube.com/embed/FnVbvw_1JFk?autoplay=1&rel=0" title="That 1 Painter Knoxville" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        });
+    </script>
+
+</body>
+</html>
