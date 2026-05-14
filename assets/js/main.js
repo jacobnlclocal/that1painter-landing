@@ -3,6 +3,25 @@
 (function () {
   'use strict';
 
+  // ---- GCLID capture: read ?gclid from URL on landing and persist for 90 days.
+  // Lets us pass the click ID back with the lead so Google Ads can match conversions
+  // to the exact keyword/search term.
+  function captureGclid() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var gclid = params.get('gclid');
+      if (gclid) {
+        var ttl = 90 * 24 * 60 * 60 * 1000;
+        var expires = new Date(Date.now() + ttl).toUTCString();
+        document.cookie = '_gclid=' + encodeURIComponent(gclid) + '; expires=' + expires + '; path=/; SameSite=Lax';
+      }
+    } catch (e) { /* no-op */ }
+  }
+  function getGclid() {
+    var match = document.cookie.match(/(?:^|;\s*)_gclid=([^;]+)/);
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
   // ---- Lead form: capture name + phone, then open HCP booking modal pre-filled if available
   function attachLeadForms() {
     var forms = document.querySelectorAll('form[data-lead-form]');
@@ -19,14 +38,24 @@
           return;
         }
 
-        // GA4 / gtag event (no-ops if gtag not loaded)
+        var phoneDigits = phone.replace(/\D/g, '');
+        var phoneE164 = phoneDigits.length === 10 ? '+1' + phoneDigits : (phoneDigits.length === 11 ? '+' + phoneDigits : phone);
+        var firstName = name.split(' ')[0] || name;
+        var lastName = name.split(' ').slice(1).join(' ') || '';
+
+        // Enhanced Conversions for Leads — pass hashed-by-Google user data so phone-based
+        // bookings can match back to the ad click. Google handles hashing automatically when
+        // values are sent via gtag('set', 'user_data', ...).
         if (window.gtag) {
+          window.gtag('set', 'user_data', {
+            phone_number: phoneE164,
+            address: { first_name: firstName, last_name: lastName }
+          });
           window.gtag('event', 'generate_lead', {
             event_category: 'lead_form',
             event_label: form.dataset.formLocation || 'hero',
             value: 1,
-            lead_name: name,
-            lead_phone: phone
+            currency: 'USD'
           });
         }
 
@@ -48,7 +77,13 @@
         }
 
         // Fallback: redirect to thank-you page with lead params (the page can ping a webhook from there)
-        var params = new URLSearchParams({ name: name, phone: phone, src: form.dataset.formLocation || 'hero' });
+        var params = new URLSearchParams({
+          name: name,
+          phone: phone,
+          src: form.dataset.formLocation || 'hero'
+        });
+        var gclid = getGclid();
+        if (gclid) params.set('gclid', gclid);
         window.location.href = '/thank-you.html?' + params.toString();
       });
     });
@@ -96,6 +131,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    captureGclid();
     attachLeadForms();
     attachPhoneMask();
     attachHcpOpeners();

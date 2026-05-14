@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZMC1K4EEJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8ZMC1K4EEJ');
+  </script>
+
   <title>Thanks! Adam will call you back — That 1 Painter Knoxville</title>
   <meta name="description" content="Thanks for requesting a free painting estimate. Adam will call you back within 1 hour during business hours.">
   <meta name="robots" content="noindex">
@@ -14,16 +24,14 @@
   <link rel="icon" type="image/webp" href="/logo.webp">
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  <!-- Google Ads conversion event placeholder — replace with real conversion ID/label -->
+  <!-- Lead conversion event — fires after GA4 loads. Add Google Ads conversion ID below when ready. -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    if (window.gtag) {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
-      });
-      gtag('event', 'generate_lead', { 'value': 1, 'currency': 'USD' });
-    }
+    // GA4 event always fires
+    gtag('event', 'generate_lead', { value: 1, currency: 'USD' });
+
+    // Google Ads conversion event — replace AW-CONVERSION_ID/CONVERSION_LABEL with real values from
+    // Google Ads → Tools → Conversions → (your action) → Tag setup → Use Google tag → Event snippet.
+    // gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL', value: 1.0, currency: 'USD' });
   </script>
 </head>
 <body>
