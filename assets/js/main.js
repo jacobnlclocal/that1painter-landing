@@ -1,4 +1,4 @@
-/* That 1 Painter Knoxville — shared JS */
+/* That 1 Painter Knoxville - shared JS */
 
 (function () {
   'use strict';
@@ -37,7 +37,7 @@
           'Accept': 'application/json'
         },
         body: JSON.stringify(payload)
-      }).catch(function () { /* silent — we don't block UX on this */ });
+      }).catch(function () { /* silent - we don't block UX on this */ });
     } catch (e) { /* silent */ }
   }
 
@@ -77,10 +77,10 @@
         payload._phone_e164 = phoneE164;
         payload._submitted_at = new Date().toISOString();
 
-        // 1) POST to Formspree (lead source of truth — every submit gets logged here)
+        // 1) POST to Formspree (lead source of truth - every submit gets logged here)
         postLeadToFormspree(payload);
 
-        // 2) Enhanced Conversions for Leads — pass user data so phone-based bookings match
+        // 2) Enhanced Conversions for Leads - pass user data so phone-based bookings match
         // back to the Google Ads click. Google handles hashing automatically.
         if (window.gtag) {
           window.gtag('set', 'user_data', {
@@ -95,7 +95,7 @@
           });
         }
 
-        // 3) Try Housecall Pro booking widget — opens prefilled modal if available.
+        // 3) Try Housecall Pro booking widget - opens prefilled modal if available.
         if (window.HCPWidget && typeof window.HCPWidget.openModal === 'function') {
           try {
             window.HCPWidget.openModal({
