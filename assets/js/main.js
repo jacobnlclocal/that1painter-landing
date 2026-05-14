@@ -22,7 +22,27 @@
     return match ? decodeURIComponent(match[1]) : '';
   }
 
-  // ---- Lead form: capture name + phone, then open HCP booking modal pre-filled if available
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xlgzkqqw';
+
+  // ---- Send a lead to Formspree. Fire-and-forget with keepalive so the request
+  // survives the subsequent HCP modal open or thank-you page navigation.
+  function postLeadToFormspree(payload) {
+    try {
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        mode: 'cors',
+        keepalive: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).catch(function () { /* silent — we don't block UX on this */ });
+    } catch (e) { /* silent */ }
+  }
+
+  // ---- Lead form: capture name + phone, POST to Formspree, then open HCP booking modal
+  // pre-filled if available, else redirect to /thank-you.
   function attachLeadForms() {
     var forms = document.querySelectorAll('form[data-lead-form]');
     forms.forEach(function (form) {
@@ -42,10 +62,26 @@
         var phoneE164 = phoneDigits.length === 10 ? '+1' + phoneDigits : (phoneDigits.length === 11 ? '+' + phoneDigits : phone);
         var firstName = name.split(' ')[0] || name;
         var lastName = name.split(' ').slice(1).join(' ') || '';
+        var source = form.dataset.formLocation || 'hero';
+        var gclid = getGclid();
 
-        // Enhanced Conversions for Leads — pass hashed-by-Google user data so phone-based
-        // bookings can match back to the ad click. Google handles hashing automatically when
-        // values are sent via gtag('set', 'user_data', ...).
+        // Build payload from every field on the form, plus useful meta. The free-estimate page
+        // form has extras (email, service, area, notes) that get included automatically.
+        var payload = {};
+        var fd = new FormData(form);
+        fd.forEach(function (value, key) { payload[key] = value; });
+        payload._source = source;
+        payload._page = window.location.pathname;
+        payload._referrer = document.referrer || '';
+        payload._gclid = gclid;
+        payload._phone_e164 = phoneE164;
+        payload._submitted_at = new Date().toISOString();
+
+        // 1) POST to Formspree (lead source of truth — every submit gets logged here)
+        postLeadToFormspree(payload);
+
+        // 2) Enhanced Conversions for Leads — pass user data so phone-based bookings match
+        // back to the Google Ads click. Google handles hashing automatically.
         if (window.gtag) {
           window.gtag('set', 'user_data', {
             phone_number: phoneE164,
@@ -53,19 +89,19 @@
           });
           window.gtag('event', 'generate_lead', {
             event_category: 'lead_form',
-            event_label: form.dataset.formLocation || 'hero',
+            event_label: source,
             value: 1,
             currency: 'USD'
           });
         }
 
-        // Try Housecall Pro booking widget — opens prefilled modal if available.
+        // 3) Try Housecall Pro booking widget — opens prefilled modal if available.
         if (window.HCPWidget && typeof window.HCPWidget.openModal === 'function') {
           try {
             window.HCPWidget.openModal({
               customer: {
-                first_name: name.split(' ')[0] || name,
-                last_name: name.split(' ').slice(1).join(' ') || '',
+                first_name: firstName,
+                last_name: lastName,
                 mobile_number: phone
               }
             });
@@ -76,13 +112,8 @@
           }
         }
 
-        // Fallback: redirect to thank-you page with lead params (the page can ping a webhook from there)
-        var params = new URLSearchParams({
-          name: name,
-          phone: phone,
-          src: form.dataset.formLocation || 'hero'
-        });
-        var gclid = getGclid();
+        // 4) Fallback: redirect to thank-you with lead params
+        var params = new URLSearchParams({ name: name, phone: phone, src: source });
         if (gclid) params.set('gclid', gclid);
         window.location.href = '/thank-you.html?' + params.toString();
       });
