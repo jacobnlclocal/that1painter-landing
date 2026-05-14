@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A3A5E"/>
+      <stop offset="1" stop-color="#0E2238"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Truck silhouette left -->
+  <rect x="40" y="320" width="280" height="140" rx="14" fill="#1FA8D8" opacity="0.85"/>
+  <circle cx="120" cy="470" r="32" fill="#0E2238"/>
+  <circle cx="260" cy="470" r="32" fill="#0E2238"/>
+  <!-- Truck silhouette right -->
+  <rect x="480" y="320" width="280" height="140" rx="14" fill="#1FA8D8" opacity="0.85"/>
+  <circle cx="540" cy="470" r="32" fill="#0E2238"/>
+  <circle cx="680" cy="470" r="32" fill="#0E2238"/>
+  <!-- Lucas figure -->
+  <circle cx="360" cy="260" r="36" fill="#3DA8F5"/>
+  <path d="M 320 460 Q 320 320 360 320 Q 400 320 400 460 Z" fill="#3DA8F5"/>
+  <!-- Nick figure -->
+  <circle cx="440" cy="260" r="36" fill="#3DA8F5"/>
+  <path d="M 400 460 Q 400 320 440 320 Q 480 320 480 460 Z" fill="#3DA8F5"/>
+  <text x="400" y="555" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.55)" letter-spacing="2">REPLACE WITH TEAM PHOTO  · /assets/img/team-lucas-nick.jpg</text>
+</svg>
