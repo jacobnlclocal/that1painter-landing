@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A3A5E"/>
+      <stop offset="1" stop-color="#0E2238"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="160" r="60" fill="#3DA8F5" opacity="0.85"/>
+  <path d="M 80 400 Q 80 260 200 260 Q 320 260 320 400 Z" fill="#3DA8F5" opacity="0.85"/>
+  <text x="200" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.55)" letter-spacing="2">REPLACE WITH ADAM'S PHOTO</text>
+</svg>
