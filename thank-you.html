@@ -25,14 +25,17 @@
   <link rel="icon" type="image/webp" href="/logo.webp">
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  <!-- Lead conversion event - fires after GA4 loads. Add Google Ads conversion ID below when ready. -->
+  <!-- Lead conversion events - fire after Google Tag loads. -->
   <script>
-    // GA4 event always fires
-    gtag('event', 'generate_lead', { value: 1, currency: 'USD' });
+    // GA4 lead event
+    gtag('event', 'generate_lead', { value: 50, currency: 'USD' });
 
-    // Google Ads conversion event - replace AW-CONVERSION_ID/CONVERSION_LABEL with real values from
-    // Google Ads → Tools → Conversions → (your action) → Tag setup → Use Google tag → Event snippet.
-    // gtag('event', 'conversion', { send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL', value: 1.0, currency: 'USD' });
+    // Google Ads conversion event for "Form Lead - Knoxville" (Wordpress - Lead Form - Knoxville action)
+    gtag('event', 'conversion', {
+      send_to: 'AW-11226884509/plzjCLvbj9YZEJ3Tsukp',
+      value: 50.0,
+      currency: 'USD'
+    });
   </script>
 </head>
 <body>
