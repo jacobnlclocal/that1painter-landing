@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you.html
 
-Sitemap: https://that1painter.com/sitemap.xml
+Sitemap: https://t1pknoxville.com/sitemap.xml
