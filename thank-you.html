@@ -25,18 +25,10 @@
   <link rel="icon" type="image/webp" href="/logo.webp">
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  <!-- Lead conversion events - fire after Google Tag loads. -->
-  <script>
-    // GA4 lead event
-    gtag('event', 'generate_lead', { value: 50, currency: 'USD' });
+  <!-- Conversion + GA4 lead events fire in main.js on form submit, NOT here.
+       /thank-you.html is the fallback destination when the HCP modal does not load;
+       firing events here would double-count the fallback path. -->
 
-    // Google Ads conversion event for "Form Lead - Knoxville" (T1PKnoxville.com action)
-    gtag('event', 'conversion', {
-      send_to: 'AW-11226884509/Om-5CPbx160cEJ3Tsukp',
-      value: 50.0,
-      currency: 'USD'
-    });
-  </script>
 </head>
 <body>
 

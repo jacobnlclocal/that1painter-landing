@@ -80,8 +80,10 @@
         // 1) POST to Formspree (lead source of truth - every submit gets logged here)
         postLeadToFormspree(payload);
 
-        // 2) Enhanced Conversions for Leads - pass user data so phone-based bookings match
-        // back to the Google Ads click. Google handles hashing automatically.
+        // 2) Enhanced Conversions for Leads + GA4 + Google Ads conversion event.
+        // Fire on submit (not on /thank-you) so we capture leads even when the
+        // HCP modal opens instead of redirecting. user_data is passed first so
+        // Google Ads can match the lead to the click via hashed phone/name.
         if (window.gtag) {
           window.gtag('set', 'user_data', {
             phone_number: phoneE164,
@@ -90,7 +92,12 @@
           window.gtag('event', 'generate_lead', {
             event_category: 'lead_form',
             event_label: source,
-            value: 1,
+            value: 50,
+            currency: 'USD'
+          });
+          window.gtag('event', 'conversion', {
+            send_to: 'AW-11226884509/Om-5CPbx160cEJ3Tsukp',
+            value: 50.0,
             currency: 'USD'
           });
         }
