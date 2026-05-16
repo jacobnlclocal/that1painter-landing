@@ -300,8 +300,8 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-lg);
   transform: rotate(-3deg);
   position: relative;
-  margin-bottom: -36px;
-  z-index: 2;
+  margin-top: -36px;
+  z-index: 1;
 }
 .polaroid::before {
   content: "";
@@ -346,6 +346,7 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-lg);
   color: var(--ink);
   position: relative;
+  z-index: 2;
 }
 .quote-card .badge-save {
   position: absolute;
@@ -906,7 +907,7 @@ footer a:hover { color: var(--cyan-2); }
   .reviews-pill { display: none; }
   .topbar-phone { font-size: 1.05rem; }
   .brand-sub { display: none; }
-  .polaroid { width: 200px; margin-bottom: -28px; }
+  .polaroid { width: 200px; margin-top: -28px; }
   .quote-card { padding: 22px 20px; }
   .btn-phone .number { font-size: 1.15rem; }
 }
