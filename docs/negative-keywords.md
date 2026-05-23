@@ -278,7 +278,7 @@ These rarely book a quote. Add as Exact at minimum, Phrase if you want aggressiv
 
 ## Section 9: Out-of-area geo
 
-If T1P Knoxville only services East Tennessee (Knox, Blount, Anderson, Loudon, Sevier counties),
+If T1P Knoxville only services the Greater Knoxville area (Knox, Blount, Anderson, Loudon, Sevier counties),
 block the obvious out-of-area variants.
 
 ```
