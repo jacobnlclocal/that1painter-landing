@@ -92,6 +92,24 @@
       content: ""; flex-shrink: 0; width: 22px; height: 22px;
       background: no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231FA8D8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
     }
+    /* Mobile: headline + form above the fold. Dissolve the copy column so the
+       form card sits directly under the H1; push the bullets/call button below. */
+    @media (max-width: 899px) {
+      .estimate-grid { display: flex; flex-direction: column; gap: 20px; }
+      .estimate-side { display: contents; }
+      .estimate-side .hero-eyebrow { order: 1; }
+      .estimate-side h1 { order: 2; }
+      .estimate-card { order: 3; }
+      .estimate-side p { order: 4; }
+      .estimate-side ul { order: 5; }
+      .estimate-side > div { order: 6; }
+    }
+    @media (max-width: 600px) {
+      .estimate-hero { padding: 26px 20px 50px; }
+      .estimate-side h1 { font-size: 1.9rem; margin-bottom: 10px; }
+      .estimate-card { padding: 22px 20px; }
+      .estimate-card h2 { font-size: 1.3rem; }
+    }
   </style>
 </head>
 <body>
@@ -111,7 +129,7 @@
     <div class="estimate-grid">
       <div class="estimate-side">
         <div class="hero-eyebrow"><span class="arrow"></span><span class="script">Free quote</span></div>
-        <h1>Get a free <span class="accent">painting quote</span> from the team.</h1>
+        <h1>Get a free quote from <span class="accent">Knoxville's painters</span>.</h1>
         <p>Tell me what you'd like painted. I'll personally call you back within an hour during business hours - or first thing tomorrow.</p>
         <ul>
           <li>No call centers - you talk to me or my managers</li>
@@ -152,6 +170,8 @@
             <option value="interior">Interior painting</option>
             <option value="exterior">Exterior painting</option>
             <option value="cabinets">Cabinet painting</option>
+            <option value="deck">Deck staining</option>
+            <option value="fence">Fence painting / staining</option>
             <option value="multiple">Multiple / not sure yet</option>
           </select>
 
@@ -192,11 +212,11 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand"><img src="/logo.webp" alt="That 1 Painter"><p>Locally owned painting company serving the Greater Knoxville area since 2023. Licensed &amp; insured. Owner-operated.</p></div>
-      <div><h5>Services</h5><ul><li><a href="/interior.html">Interior Painting</a></li><li><a href="/exterior.html">Exterior Painting</a></li><li><a href="/cabinets.html">Cabinet Painting</a></li></ul></div>
+      <div><h5>Services</h5><ul><li><a href="/interior.html">Interior Painting</a></li><li><a href="/exterior.html">Exterior Painting</a></li><li><a href="/cabinets.html">Cabinet Painting</a></li><li><a href="/deck-staining.html">Deck Staining</a></li><li><a href="/fence-painting.html">Fence Painting</a></li></ul></div>
       <div><h5>Service Area</h5><ul><li><a href="/free-estimate.html">Knoxville</a></li><li><a href="/free-estimate.html">Farragut · West Knox</a></li><li><a href="/free-estimate.html">Maryville · Alcoa</a></li><li><a href="/free-estimate.html">Powell · Karns</a></li><li><a href="/free-estimate.html">Oak Ridge · Lenoir City</a></li></ul></div>
       <div><h5>Talk to the Team</h5><ul><li><a href="tel:18653483036">(865) 348-3036</a></li><li><a href="/free-estimate.html">Free estimate →</a></li><li><a href="/about.html">Meet the Team</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><div>© 2026 That 1 Painter of Knoxville · Licensed &amp; Insured</div><div>Knoxville, TN · t1pknoxville.com</div></div>
+    <div class="footer-bottom"><div>© 2026 That 1 Painter of Knoxville · Licensed &amp; Insured</div><div>Serving Knoxville, Farragut, Maryville, Powell &amp; Oak Ridge · (865) 348-3036</div><div>Knoxville, TN · t1pknoxville.com</div></div>
   </footer>
 
   <div class="sticky-cta">
