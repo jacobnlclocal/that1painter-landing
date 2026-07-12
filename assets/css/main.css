@@ -34,7 +34,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--cyan-dark); }
 button { font-family: inherit; cursor: pointer; }
 
@@ -1185,4 +1185,32 @@ footer a:hover { color: var(--cyan-2); }
   .polaroid { width: 320px; margin-top: -28px; }
   .quote-card { padding: 22px 20px; }
   .btn-phone .number { font-size: 1.15rem; }
+}
+
+/* ── Mobile: keep the headline + lead form above the fold ── */
+/* On phones/tablets the hero stacks. Dissolve the copy column so the
+   form (hero-right) can sit directly under the H1, and push the
+   supporting paragraph/bullets/CTAs below it. */
+@media (max-width: 979px) {
+  .hero-inner { display: flex; flex-direction: column; gap: 22px; }
+  .hero-inner > div:first-child { display: contents; }
+  .hero-eyebrow { order: 1; }
+  .hero h1      { order: 2; }
+  .hero-right   { order: 3; }
+  .hero-lead    { order: 4; }
+  .hero-list    { order: 5; }
+  .hero-ctas    { order: 6; }
+}
+/* Compact the top of the hero on small phones so H1 + form both fit. */
+@media (max-width: 600px) {
+  .hero { padding: 16px 20px 52px; }
+  .hero-inner { gap: 12px; }
+  .brand img { height: 38px; }
+  .hero-eyebrow { font-size: 0.95rem; margin-bottom: 2px; }
+  .hero h1 { font-size: 1.7rem; line-height: 1.0; margin-bottom: 8px; }
+  .hero h1 .accent::after { width: 130px; height: 4px; margin-top: 2px; }
+  .quote-card { padding: 18px 16px 16px; }
+  .quote-card h3 { font-size: 1.2rem; margin-bottom: 2px; }
+  .quote-card .sub { margin-bottom: 10px; }
+  .quote-card label { margin-top: 10px; }
 }

@@ -187,8 +187,23 @@
     });
   }
 
+  // ---- Pre-select the service dropdown from ?service= in the URL. The service
+  // pages link to /free-estimate.html?service=interior|exterior|cabinets|deck|fence,
+  // so the visitor doesn't have to re-pick what they already told us.
+  function prefillServiceFromQuery() {
+    try {
+      var svc = new URLSearchParams(window.location.search).get('service');
+      if (!svc) return;
+      var sel = document.querySelector('select[name="service"]');
+      if (sel && [].some.call(sel.options, function (o) { return o.value === svc; })) {
+        sel.value = svc;
+      }
+    } catch (e) { /* no-op */ }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     captureGclid();
+    prefillServiceFromQuery();
     attachLeadForms();
     attachPhoneMask();
     attachHcpOpeners();
