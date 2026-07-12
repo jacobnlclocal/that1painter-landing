@@ -160,7 +160,8 @@ h1, h2, h3, h4 {
   z-index: 1;
 }
 @media (min-width: 980px) {
-  .hero-inner { grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center; }
+  .hero-inner { grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: start; }
+  .hero-inner > div:first-child { padding-top: 24px; }
 }
 
 .hero-eyebrow {
@@ -317,6 +318,7 @@ h1, h2, h3, h4 {
 }
 .polaroid img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4/3;
   object-fit: cover;
   background: var(--offwhite);
@@ -779,6 +781,236 @@ footer a:hover { color: var(--cyan-2); }
 .mt-12 { margin-top: 12px; }
 .mt-24 { margin-top: 24px; }
 .mt-40 { margin-top: 40px; }
+
+/* ── Form rating microrow (under submit) ──────────────── */
+.form-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.form-rating .g-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: 0.72rem;
+  color: #4285F4;
+  flex-shrink: 0;
+}
+.form-rating .stars { color: var(--yellow); letter-spacing: 1px; font-size: 0.85rem; }
+.form-rating strong { color: var(--ink); }
+
+.quote-card .btn-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+/* ── Comparison table ─────────────────────────────────── */
+.compare-wrap {
+  max-width: 860px;
+  margin: 32px auto 0;
+  overflow-x: auto;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.compare-table th,
+.compare-table td {
+  padding: 15px 18px;
+  text-align: center;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--line);
+}
+.compare-table tr:last-child th,
+.compare-table tr:last-child td { border-bottom: 0; }
+.compare-table thead th {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 18px;
+}
+.compare-table thead th:first-child { background: var(--white); }
+.compare-table thead th.us {
+  background: var(--navy);
+  color: var(--white);
+}
+.compare-table thead th.them {
+  background: var(--offwhite);
+  color: var(--muted);
+}
+.compare-table tbody th {
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.93rem;
+}
+.compare-table td.us { background: rgba(31,168,216,0.06); }
+.compare-table .yes {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(31,157,110,0.14);
+  color: var(--green);
+  font-weight: 800;
+}
+.compare-table .no {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(192,57,43,0.1);
+  color: #C0392B;
+  font-weight: 700;
+}
+@media (max-width: 560px) {
+  .compare-table th, .compare-table td { padding: 12px 10px; font-size: 0.85rem; }
+}
+
+/* ── Guarantee band ───────────────────────────────────── */
+.guarantee-band {
+  background: var(--cream);
+  padding: 60px 24px;
+}
+.guarantee-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--navy);
+  background-image: linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 100%);
+  border-radius: 18px;
+  padding: 44px 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.guarantee-inner::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(31,168,216,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+@media (min-width: 820px) {
+  .guarantee-inner { grid-template-columns: auto 1fr auto; gap: 36px; }
+}
+.guarantee-shield {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(31,168,216,0.15);
+  border: 2px solid rgba(45,192,240,0.5);
+  display: grid;
+  place-items: center;
+  color: var(--cyan-2);
+  margin: 0 auto;
+}
+.guarantee-shield svg { width: 42px; height: 42px; }
+.guarantee-copy h2 {
+  color: var(--white);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  text-transform: uppercase;
+  line-height: 1.08;
+  margin-bottom: 10px;
+}
+.guarantee-copy h2 .accent { color: var(--cyan-2); }
+.guarantee-copy p {
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 520px;
+}
+.guarantee-cta { text-align: center; }
+
+/* ── Review cards v2 (Google-style) ───────────────────── */
+.review-card { position: relative; }
+.review-card .review-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.review-card .avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.review-card .review-meta .who {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.review-card .review-meta .where {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.review-card .g-corner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: 0.85rem;
+  color: #4285F4;
+  background: var(--white);
+}
+.reviews-cta-row {
+  text-align: center;
+  margin-top: 28px;
+}
+.reviews-cta-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cyan-dark);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.reviews-cta-row a:hover { text-decoration: underline; }
 
 /* ── Meet the Team section ─────────────────────────────── */
 .team-section {

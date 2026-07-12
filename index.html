@@ -39,6 +39,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/webp" href="/logo.webp">
+  <link rel="preload" as="image" href="/assets/img/team-lucas-nick.jpg">
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <script type="application/ld+json">
@@ -62,6 +63,45 @@
       "ratingValue": "4.9",
       "reviewCount": "250"
     }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does interior painting cost in Knoxville?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Every project is quoted on-site. We walk the rooms with you, factor in prep, ceiling height, trim work, and paint grade, then give you the exact number in writing - never an hourly bill. The walkthrough is free and there's zero obligation to book."}
+      },
+      {
+        "@type": "Question",
+        "name": "Who runs That 1 Painter Knoxville?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Lucas and Nick are the location managers for Knoxville. They run estimates, manage the crews, and walk every job with you. You get their direct numbers when you book."}
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a typical exterior repaint take?",
+        "acceptedAnswer": {"@type": "Answer", "text": "An average 2,000-3,000 sq ft Knoxville home takes 5-8 working days for a full exterior repaint, weather permitting. We coordinate around your schedule and the Greater Knoxville forecast."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do you do cabinet painting?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes - we spray cabinets with a factory-grade finish, either in our shop or on-site with full dust containment. Most kitchens are done in 5-7 days with hardware swapped at no extra cost."}
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Knoxville, Farragut, West Knoxville, Maryville, Powell, Karns, Oak Ridge, Lenoir City, Alcoa, Sevierville, and most of the Greater Knoxville area within a 45-minute drive."}
+      },
+      {
+        "@type": "Question",
+        "name": "Are you licensed and insured?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes - fully licensed in Tennessee, with general liability and workers' comp coverage. We'll provide certificates on request before any work starts."}
+      }
+    ]
   }
   </script>
 </head>
@@ -143,13 +183,19 @@
             <input id="lf-name" name="name" type="text" placeholder="First & last" autocomplete="name" required>
             <label for="lf-phone">Phone number</label>
             <input id="lf-phone" name="phone" type="tel" placeholder="(865) 555-0142" autocomplete="tel" inputmode="numeric" required>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px;" aria-hidden="true">
             <button class="btn-submit" type="submit">Get my free quote →</button>
             <div class="trust-line">100% free · No obligation · No spam</div>
+            <div class="form-rating">
+              <span class="g-badge" aria-hidden="true">G</span>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <span>Rated <strong>4.9</strong> by 250+ Knoxville homeowners</span>
+            </div>
           </form>
         </div>
 
         <div class="polaroid">
-          <img src="/assets/img/team-lucas-nick.jpg" alt="Lucas and Nick, location managers for That 1 Painter of Knoxville" onerror="this.onerror=null;this.src='/assets/img/team-placeholder.svg';">
+          <img src="/assets/img/team-lucas-nick.jpg" width="1600" height="1200" alt="Lucas and Nick, location managers for That 1 Painter of Knoxville" onerror="this.onerror=null;this.src='/assets/img/team-placeholder.svg';">
           <div class="caption">
             <div class="name">Lucas &amp; Nick</div>
             <div class="role">Location Managers · Knoxville, TN</div>
@@ -221,8 +267,61 @@
     </div>
   </section>
 
-  <!-- ── Process ───────────────────────────────────────── -->
+  <!-- ── Comparison ────────────────────────────────────── -->
   <section class="bg-white">
+    <div class="container">
+      <span class="section-eyebrow">The Difference</span>
+      <h2 class="section-title">Us vs. the other guys</h2>
+      <p class="section-lead">Every painter says they're "quality." Here's what you can actually hold us to.</p>
+
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="us">That 1 Painter</th>
+              <th class="them">Typical Painter</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Fixed price in writing before work starts</th>
+              <td class="us"><span class="yes">✓</span></td>
+              <td><span class="no">✕</span></td>
+            </tr>
+            <tr>
+              <th>Same manager from quote to final walk-through</th>
+              <td class="us"><span class="yes">✓</span></td>
+              <td><span class="no">✕</span></td>
+            </tr>
+            <tr>
+              <th>Callback within 1 business hour</th>
+              <td class="us"><span class="yes">✓</span></td>
+              <td><span class="no">✕</span></td>
+            </tr>
+            <tr>
+              <th>Premium paint included in the quote</th>
+              <td class="us"><span class="yes">✓</span></td>
+              <td><span class="no">✕</span></td>
+            </tr>
+            <tr>
+              <th>Daily cleanup - not just at the end</th>
+              <td class="us"><span class="yes">✓</span></td>
+              <td><span class="no">✕</span></td>
+            </tr>
+            <tr>
+              <th>3-year workmanship warranty in writing</th>
+              <td class="us"><span class="yes">✓</span></td>
+              <td><span class="no">✕</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Process ───────────────────────────────────────── -->
+  <section class="bg-cream">
     <div class="container">
       <span class="section-eyebrow">How It Works</span>
       <h2 class="section-title">From "I need a painter" to "Wow" in 4 steps</h2>
@@ -237,7 +336,7 @@
   </section>
 
   <!-- ── Reviews ───────────────────────────────────────── -->
-  <section class="bg-cream">
+  <section class="bg-white">
     <div class="container">
       <span class="section-eyebrow">Knoxville Reviews</span>
       <h2 class="section-title">Why the Greater Knoxville area picks us</h2>
@@ -245,20 +344,61 @@
 
       <div class="cards-3 mt-24">
         <div class="review-card">
+          <span class="g-corner" aria-hidden="true">G</span>
+          <div class="review-head">
+            <div class="avatar">S</div>
+            <div class="review-meta">
+              <div class="who">Sarah K.</div>
+              <div class="where">Farragut</div>
+            </div>
+          </div>
           <div class="stars">★★★★★</div>
           <p class="quote">"Lucas walked the house with us, gave us a real price, and the crew showed up at 7:30 every morning. House looks ten years younger."</p>
-          <div class="who">- Sarah K., Farragut</div>
         </div>
         <div class="review-card">
+          <span class="g-corner" aria-hidden="true">G</span>
+          <div class="review-head">
+            <div class="avatar">M</div>
+            <div class="review-meta">
+              <div class="who">Marcus W.</div>
+              <div class="where">West Knoxville</div>
+            </div>
+          </div>
           <div class="stars">★★★★★</div>
           <p class="quote">"Got three quotes. They weren't the cheapest but they were the only ones who actually looked at our trim before pricing. Worth it."</p>
-          <div class="who">- Marcus W., West Knoxville</div>
         </div>
         <div class="review-card">
+          <span class="g-corner" aria-hidden="true">G</span>
+          <div class="review-head">
+            <div class="avatar">D</div>
+            <div class="review-meta">
+              <div class="who">Diane M.</div>
+              <div class="where">Maryville</div>
+            </div>
+          </div>
           <div class="stars">★★★★★</div>
           <p class="quote">"They painted our cabinets and you cannot tell they were repainted. Like factory work. Better than the new builds in our neighborhood."</p>
-          <div class="who">- Diane M., Maryville</div>
         </div>
+      </div>
+
+      <div class="reviews-cta-row">
+        <a href="https://www.google.com/search?q=That+1+Painter+Knoxville+reviews" target="_blank" rel="noopener">Read all 250+ reviews on Google →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Guarantee band ────────────────────────────────── -->
+  <section class="guarantee-band">
+    <div class="guarantee-inner">
+      <div class="guarantee-shield" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4v6c0 5-3.5 9.5-9 10-5.5-.5-9-5-9-10V6l9-4z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <div class="guarantee-copy">
+        <h2>If something's not right, <span class="accent">we make it right.</span></h2>
+        <p>Every job is backed by a 3-year workmanship warranty in writing. If the paint fails because of our prep or application, we come back and fix it. No fine print, no arguing, no "that's not covered."</p>
+      </div>
+      <div class="guarantee-cta">
+        <a href="#quote" class="btn-cyan">Get my free quote</a>
       </div>
     </div>
   </section>

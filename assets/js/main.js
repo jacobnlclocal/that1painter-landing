@@ -58,6 +58,25 @@
           return;
         }
 
+        // Honeypot: bots fill the hidden _gotcha field. Pretend success, do nothing.
+        var honeypot = form.querySelector('[name="_gotcha"]');
+        if (honeypot && honeypot.value) {
+          form.reset();
+          return;
+        }
+
+        // Disable submit to prevent double-fires while HCP modal / redirect kicks in
+        var submitBtn = form.querySelector('[type="submit"]');
+        var submitLabel = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'One sec…';
+          setTimeout(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitLabel;
+          }, 4000);
+        }
+
         var phoneDigits = phone.replace(/\D/g, '');
         var phoneE164 = phoneDigits.length === 10 ? '+1' + phoneDigits : (phoneDigits.length === 11 ? '+' + phoneDigits : phone);
         var firstName = name.split(' ')[0] || name;

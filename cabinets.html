@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","serviceType":"Cabinet Painting","provider":{"@type":"Painter","name":"That 1 Painter of Knoxville","telephone":"+18653483036","url":"https://t1pknoxville.com/"},"areaServed":["Knoxville","Maryville","Powell","Farragut","Oak Ridge"]}
+  {"@context":"https://schema.org","@type":"Service","serviceType":"Cabinet Painting","provider":{"@type":"Painter","name":"That 1 Painter of Knoxville","telephone":"+18653483036","url":"https://t1pknoxville.com/"},"areaServed":["Knoxville","Maryville","Powell","Farragut","Oak Ridge"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"250"}}
   </script>
 </head>
 <body>
@@ -81,11 +81,17 @@
             <input id="lf-name" name="name" type="text" placeholder="First & last" autocomplete="name" required>
             <label for="lf-phone">Phone number</label>
             <input id="lf-phone" name="phone" type="tel" placeholder="(865) 555-0142" autocomplete="tel" inputmode="numeric" required>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px;" aria-hidden="true">
             <button class="btn-submit" type="submit">Get my free quote →</button>
             <div class="trust-line">100% free · No obligation · No spam</div>
+            <div class="form-rating">
+              <span class="g-badge" aria-hidden="true">G</span>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <span>Rated <strong>4.9</strong> by 250+ Knoxville homeowners</span>
+            </div>
           </form>
         </div>
-        <div class="polaroid"><img src="/assets/img/team-lucas-nick.jpg" onerror="this.onerror=null;this.src=&apos;/assets/img/team-placeholder.svg&apos;" alt="Lucas and Nick, location managers"><div class="caption"><div class="name">Lucas &amp; Nick</div><div class="role">Location Managers · Knoxville, TN</div></div></div>
+        <div class="polaroid"><img src="/assets/img/team-lucas-nick.jpg" width="1600" height="1200" loading="lazy" onerror="this.onerror=null;this.src=&apos;/assets/img/team-placeholder.svg&apos;" alt="Lucas and Nick, location managers"><div class="caption"><div class="name">Lucas &amp; Nick</div><div class="role">Location Managers · Knoxville, TN</div></div></div>
       </div>
     </div>
   </section>
