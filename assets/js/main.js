@@ -141,7 +141,7 @@
         // 4) Fallback: redirect to thank-you with lead params
         var params = new URLSearchParams({ name: name, phone: phone, src: source });
         if (gclid) params.set('gclid', gclid);
-        window.location.href = '/thank-you.html?' + params.toString();
+        window.location.href = '/thank-you?' + params.toString();
       });
     });
   }
@@ -188,7 +188,7 @@
   }
 
   // ---- Pre-select the service dropdown from ?service= in the URL. The service
-  // pages link to /free-estimate.html?service=interior|exterior|cabinets|deck|fence,
+  // pages link to /free-estimate?service=interior|exterior|cabinets|deck|fence,
   // so the visitor doesn't have to re-pick what they already told us.
   function prefillServiceFromQuery() {
     try {

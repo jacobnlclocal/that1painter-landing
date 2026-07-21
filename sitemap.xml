@@ -6,39 +6,39 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://t1pknoxville.com/interior.html</loc>
+    <loc>https://t1pknoxville.com/interior</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t1pknoxville.com/exterior.html</loc>
+    <loc>https://t1pknoxville.com/exterior</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t1pknoxville.com/cabinets.html</loc>
+    <loc>https://t1pknoxville.com/cabinets</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t1pknoxville.com/free-estimate.html</loc>
+    <loc>https://t1pknoxville.com/free-estimate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t1pknoxville.com/about.html</loc>
+    <loc>https://t1pknoxville.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t1pknoxville.com/deck-staining.html</loc>
+    <loc>https://t1pknoxville.com/deck-staining</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://t1pknoxville.com/fence-painting.html</loc>
+    <loc>https://t1pknoxville.com/fence-painting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://t1pknoxville.com/realtors.html</loc></url>
+  <url><loc>https://t1pknoxville.com/realtors</loc></url>
 </urlset>
