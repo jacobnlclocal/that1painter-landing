@@ -1214,3 +1214,24 @@ footer a:hover { color: var(--cyan-2); }
   .quote-card .sub { margin-bottom: 10px; }
   .quote-card label { margin-top: 10px; }
 }
+
+/* ── Pricing + project photos (added 2026-09-15) ───────── */
+.price-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .price-grid { grid-template-columns: repeat(3, 1fr); } }
+.price-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+}
+.price-card .scope { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan-dark); }
+.price-card .range { font-family: 'Archivo', 'Inter', sans-serif; font-weight: 800; font-size: 1.7rem; color: var(--navy); margin: 8px 0 6px; line-height: 1.15; }
+.price-card p { color: var(--muted); font-size: 0.93rem; line-height: 1.55; }
+.price-note { color: var(--muted); font-size: 0.88rem; margin-top: 16px; max-width: 820px; line-height: 1.55; }
+.project-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .project-grid { grid-template-columns: repeat(3, 1fr); } }
+.project-grid figure { margin: 0; }
+.project-grid img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; display: block; }
+.project-grid figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
+.reviews-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
