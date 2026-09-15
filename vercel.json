@@ -1,3 +1,15 @@
 {
-  "cleanUrls": true
+  "rewrites": [
+    { "source": "/interior", "destination": "/interior.html" },
+    { "source": "/exterior", "destination": "/exterior.html" },
+    { "source": "/cabinets", "destination": "/cabinets.html" },
+    { "source": "/deck-staining", "destination": "/deck-staining.html" },
+    { "source": "/fence-painting", "destination": "/fence-painting.html" },
+    { "source": "/free-estimate", "destination": "/free-estimate.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/thank-you", "destination": "/thank-you.html" },
+    { "source": "/realtors", "destination": "/realtors.html" },
+    { "source": "/neighbor", "destination": "/neighbor.html" },
+    { "source": "/fb", "destination": "/fb.html" }
+  ]
 }
