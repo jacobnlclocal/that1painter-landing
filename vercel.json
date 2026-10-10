@@ -10,6 +10,7 @@
     { "source": "/thank-you", "destination": "/thank-you.html" },
     { "source": "/realtors", "destination": "/realtors.html" },
     { "source": "/neighbor", "destination": "/neighbor.html" },
-    { "source": "/fb", "destination": "/fb.html" }
+    { "source": "/fb", "destination": "/fb.html" },
+    { "source": "/estimate", "destination": "/estimate.html" }
   ]
 }

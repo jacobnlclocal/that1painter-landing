@@ -22,6 +22,33 @@
     return match ? decodeURIComponent(match[1]) : '';
   }
 
+  // ---- Ad source capture: remember utm_* and fbclid from the landing URL for 90 days
+  // so the Formspree email says where the lead came from (Facebook ad vs Google, etc.)
+  // even if the visitor clicks around before submitting.
+  var SOURCE_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'fbclid'];
+  function captureAdSource() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var expires = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toUTCString();
+      SOURCE_KEYS.forEach(function (key) {
+        var val = params.get(key);
+        if (val) document.cookie = '_t1p_' + key + '=' + encodeURIComponent(val) + '; expires=' + expires + '; path=/; SameSite=Lax';
+      });
+    } catch (e) { /* no-op */ }
+  }
+  function getAdSource(key) {
+    var match = document.cookie.match(new RegExp('(?:^|;\\s*)_t1p_' + key + '=([^;]+)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  // ---- Meta Pixel (T1P Knoxville Website, 2663338367427497). Base code + PageView
+  // live in each page's <head>; these are the conversion events.
+  function fbTrack(eventName, params, eventId) {
+    try {
+      if (window.fbq) window.fbq('track', eventName, params || {}, eventId ? { eventID: eventId } : undefined);
+    } catch (e) { /* no-op */ }
+  }
+
   var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xlgzkqqw';
 
   // ---- Send a lead to Formspree. Fire-and-forget with keepalive so the request
@@ -95,6 +122,14 @@
         payload._gclid = gclid;
         payload._phone_e164 = phoneE164;
         payload._submitted_at = new Date().toISOString();
+        SOURCE_KEYS.forEach(function (key) {
+          var val = getAdSource(key);
+          if (val) payload['_' + key] = val;
+        });
+        // Shared ID for this lead so a future server-side (Conversions API) send can be
+        // deduplicated against the browser Pixel event.
+        var eventId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
+        payload._event_id = eventId;
 
         // 1) POST to Formspree (lead source of truth - every submit gets logged here)
         postLeadToFormspree(payload);
@@ -121,7 +156,13 @@
           });
         }
 
-        // 3) Try Housecall Pro booking widget - opens prefilled modal if available.
+        // Meta Pixel Lead: what the Facebook website-leads campaign optimizes for.
+        fbTrack('Lead', {
+          content_name: source,
+          content_category: payload.service || ''
+        }, eventId);
+
+        // 3) Try Housecall Pro booking widget - opens the self-booking modal if available.
         if (window.HCPWidget && typeof window.HCPWidget.openModal === 'function') {
           try {
             window.HCPWidget.openModal({
@@ -177,6 +218,7 @@
   function attachPhoneTracking() {
     document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
       a.addEventListener('click', function () {
+        fbTrack('Contact');
         if (window.gtag) {
           window.gtag('event', 'phone_click', {
             event_category: 'engagement',
@@ -203,6 +245,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     captureGclid();
+    captureAdSource();
     prefillServiceFromQuery();
     attachLeadForms();
     attachPhoneMask();
