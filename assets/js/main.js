@@ -162,6 +162,14 @@
           content_category: payload.service || ''
         }, eventId);
 
+        // 3a) Forms with a data-booking-url (Facebook ads page) hand off to a source-attributed
+        // HCP booking link instead of the widget, which carries no lead-source attribution.
+        // Short delay so the Pixel Lead request leaves before the page unloads.
+        if (form.dataset.bookingUrl) {
+          setTimeout(function () { window.location.href = form.dataset.bookingUrl; }, 350);
+          return;
+        }
+
         // 3) Try Housecall Pro booking widget - opens the self-booking modal if available.
         if (window.HCPWidget && typeof window.HCPWidget.openModal === 'function') {
           try {
