@@ -49,7 +49,7 @@
     } catch (e) { /* no-op */ }
   }
 
-  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xlgzkqqw';
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xbggznae';
 
   // ---- Send a lead to Formspree. Fire-and-forget with keepalive so the request
   // survives the subsequent HCP modal open or thank-you page navigation.
